@@ -5,18 +5,17 @@ on:
   push:
     branches:
       - test-dora
+  workflow_dispatch:
 jobs:
   build:
     steps:
       - name: Build step
         uses: docker://golang:1.20.3-alpine3.17
         kind: build
-        shell: sh 
+        shell: sh
         run: |
           echo "your build step"
           sleep 10
-        
-
   deploy-east-1:
     environment: preprod-us-east-1
     steps:
@@ -35,12 +34,3 @@ jobs:
           echo "hi again!!"
           sleep 2
           echo "hi again after 2 seconds"
-
-
-        
-      
-    
-
-        
-     
-   
